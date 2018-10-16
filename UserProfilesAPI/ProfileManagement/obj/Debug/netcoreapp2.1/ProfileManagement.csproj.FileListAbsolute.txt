@@ -1,0 +1,15 @@
+C:\Users\Reverside\Documents\M_Adam\ProfileProject\UserProfilesAPI\ProfileManagement\bin\Debug\netcoreapp2.1\ProfileDB.db
+C:\Users\Reverside\Documents\M_Adam\ProfileProject\UserProfilesAPI\ProfileManagement\bin\Debug\netcoreapp2.1\ProfileManagement.deps.json
+C:\Users\Reverside\Documents\M_Adam\ProfileProject\UserProfilesAPI\ProfileManagement\bin\Debug\netcoreapp2.1\ProfileManagement.runtimeconfig.json
+C:\Users\Reverside\Documents\M_Adam\ProfileProject\UserProfilesAPI\ProfileManagement\bin\Debug\netcoreapp2.1\ProfileManagement.runtimeconfig.dev.json
+C:\Users\Reverside\Documents\M_Adam\ProfileProject\UserProfilesAPI\ProfileManagement\bin\Debug\netcoreapp2.1\ProfileManagement.dll
+C:\Users\Reverside\Documents\M_Adam\ProfileProject\UserProfilesAPI\ProfileManagement\obj\Debug\netcoreapp2.1\ProfileManagement.csprojAssemblyReference.cache
+C:\Users\Reverside\Documents\M_Adam\ProfileProject\UserProfilesAPI\ProfileManagement\obj\Debug\netcoreapp2.1\ProfileManagement.csproj.CoreCompileInputs.cache
+C:\Users\Reverside\Documents\M_Adam\ProfileProject\UserProfilesAPI\ProfileManagement\obj\Debug\netcoreapp2.1\ProfileManagement.RazorAssemblyInfo.cache
+C:\Users\Reverside\Documents\M_Adam\ProfileProject\UserProfilesAPI\ProfileManagement\obj\Debug\netcoreapp2.1\ProfileManagement.RazorAssemblyInfo.cs
+C:\Users\Reverside\Documents\M_Adam\ProfileProject\UserProfilesAPI\ProfileManagement\obj\Debug\netcoreapp2.1\ProfileManagement.AssemblyInfoInputs.cache
+C:\Users\Reverside\Documents\M_Adam\ProfileProject\UserProfilesAPI\ProfileManagement\obj\Debug\netcoreapp2.1\ProfileManagement.AssemblyInfo.cs
+C:\Users\Reverside\Documents\M_Adam\ProfileProject\UserProfilesAPI\ProfileManagement\obj\Debug\netcoreapp2.1\ProfileManagement.RazorTargetAssemblyInfo.cache
+C:\Users\Reverside\Documents\M_Adam\ProfileProject\UserProfilesAPI\ProfileManagement\bin\Debug\netcoreapp2.1\ProfileManagement.pdb
+C:\Users\Reverside\Documents\M_Adam\ProfileProject\UserProfilesAPI\ProfileManagement\obj\Debug\netcoreapp2.1\ProfileManagement.dll
+C:\Users\Reverside\Documents\M_Adam\ProfileProject\UserProfilesAPI\ProfileManagement\obj\Debug\netcoreapp2.1\ProfileManagement.pdb
