@@ -36,7 +36,7 @@
             <input type="text" class="form-control" placeholder="DD/MM/YYYY" v-model="user.dom">
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn">Submit</button>
       </form>
   </div> 
 </template>

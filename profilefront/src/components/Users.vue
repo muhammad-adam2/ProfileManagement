@@ -16,7 +16,7 @@
             <td>{{user.firstName}}</td>
             <td>{{user.lastName}}</td>
             <td>{{user.email}}</td>
-            <td><router-link class="btn btn-primary" v-bind:to="'/user/' + user.id">View Details</router-link></td>
+            <td><router-link class="btn" v-bind:to="'/user/' + user.id">View Details</router-link></td>
         </tr>
       </tbody>
     </table>

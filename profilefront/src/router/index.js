@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import vueResource from 'vue-resource'
 import Users from '@/components/Users'
-import About from '@/components/About'
+import Login from '@/components/Login'
 import Details from '@/components/UserDetails'
 import Update from '@/components/Update'
 import Add from '@/components/Add'
@@ -20,9 +20,9 @@ export default new Router({
       component: Users
     },
     {
-      path: '/about',
-      name: 'About',
-      component: About
+      path: '/login',
+      name: 'Login',
+      component: Login
     },
     {
       path: '/user/:id',
@@ -30,7 +30,7 @@ export default new Router({
       component: Details
     },
     {
-      path: '/user/update',
+      path: '/user/update/:id',
       name: 'Update',
       component: Update
     },

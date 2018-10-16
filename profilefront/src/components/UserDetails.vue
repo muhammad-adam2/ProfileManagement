@@ -1,6 +1,7 @@
 <template>
-  <div class="details container">
+  <div class="details container" v-on:submit="deleteUser">
     <h4 class="page-header">User Details</h4>
+    <router-link class="btn" v-bind:to="'/'">Back</router-link>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -25,6 +26,8 @@
         </tr>
       </tbody>
     </table>
+    <router-link class="btn" v-bind:to="'/user/update/' + user.id">Update Details</router-link>
+    <button class="btn btn-danger" v-on:click="deleteUser(user.id)">Delete</button>
   </div>
 </template>
 
@@ -42,6 +45,12 @@ export default {
       .then(function(response){
         this.user = response.body;
       });  
+    },
+    deleteUser(id){
+      this.$http.delete("https://localhost:44328/api/User/" + this.$route.params.id)
+      .then(function(response){
+        this.$router.push({path: '/', query: {alert: 'User Deleted'}});
+      });
     }
   },
   created: function() {

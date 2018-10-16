@@ -1,7 +1,7 @@
 <template>
   <div class="update container">
       <h4 class="page-header">Update User Details</h4>
-      <form>
+      <form v-on:submit="updateUser">
         <div class="well">
           <div class="form-group">
             <label>First Name:</label>
@@ -32,6 +32,7 @@
             <input type="text" class="form-control" placeholder="DD/MM/YYYY" v-model="user.dom">
           </div>
         </div>
+        <button type="submit" class="btn">Submit</button>
       </form>
   </div>
 </template>
@@ -41,7 +42,41 @@ export default {
   name: 'Update',
   data () {
     return {
+      user: {}
     }
+  },
+  methods: {
+      fetchUser(id){
+      this.$http.get("https://localhost:44328/api/User/" + id)
+      .then(function(response){
+        this.user = response.body;
+      }); 
+      },
+      updateUser(e){
+          if (!this.user.firstName || !this.user.lastName || !this.user.email || !this.user.dom || !this.user.dob || !this.user.gender || !this.user.maritalStatus) {
+              console.log("Please fill in required fields");
+          } else {
+              let updUser = {
+                  firstName: this.user.firstName,
+                  lastName: this.user.lastName,
+                  email: this.user.email,
+                  dob: this.user.dob,
+                  gender: this.user.gender,
+                  maritalStatus: this.user.maritalStatus,
+                  dom: this.user.dom,
+              }
+              console.log(updUser);
+              this.$http.put("https://localhost:44328/api/User/" + this.$route.params.id, updUser)
+                .then(function(response){
+                    this.$router.push({path: '/', query: {alert: 'User Updated'}});
+                })
+              e.preventDefault();
+          }
+          e.preventDefault();
+      }
+  },
+  created: function(){
+    this.fetchUser(this.$route.params.id)
   }
 }
 </script>

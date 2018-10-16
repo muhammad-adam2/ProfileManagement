@@ -8,11 +8,13 @@
           <li class="nav-item active">
             <router-link class="nav-link" to="/">Home <span class="sr-only">(current)</span></router-link>
           </li>
+        </ul>
+        <ul class="navbar-nav navbar-right ">
           <li class="nav-item active">
-            <router-link class="nav-link" to="/about">About </router-link>
-          </li>
-          <li class="nav-item nav-right active">
             <router-link class="nav-link" to="/new">Register</router-link>
+          </li>
+          <li class="nav-item active">
+            <router-link class="nav-link" to="/login">Login</router-link>
           </li>
         </ul>
       </div>
