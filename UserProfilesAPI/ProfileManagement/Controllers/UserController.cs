@@ -4,15 +4,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using ProfileManagement.Models;
 
 namespace ProfileManagement.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
         // GET api/user
+        [AllowAnonymous]
         [HttpGet]
         public ActionResult<IEnumerable<Users>> Get()
         {
@@ -24,6 +27,7 @@ namespace ProfileManagement.Controllers
         }
 
         // GET api/user/5
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public ActionResult<Users> Get(int id)
         {
@@ -33,16 +37,8 @@ namespace ProfileManagement.Controllers
             return user;
         }
 
-        ////POST api/user/login
-        //[HttpPost]
-        //public ActionResult<string> Post([FromBody] Login info)
-        //{
-        //    DataAccess da = new DataAccess();
-        //    string result = da.Login(info);
-        //    return result;
-        //}
-
         // POST api/user
+        [AllowAnonymous]
         [HttpPost]
         public void Post([FromBody] NewUser value)
         {
@@ -65,5 +61,20 @@ namespace ProfileManagement.Controllers
             DataAccess da = new DataAccess();
             da.DeleteUser(id);
         }
+
+        // POST api/user/login
+        [AllowAnonymous]
+        [HttpPost("authenticate")]
+        public async Task<IActionResult> Authenticate([FromBody] Login info)
+        {
+            DataAccess da = new DataAccess();
+            var user = await da.Authenticate(info.Username, info.Password);
+
+            if (user == null)
+                return BadRequest(new { message = "Username or password is incorrect" });
+
+            return Ok(user);
+        }
     }
+
 }

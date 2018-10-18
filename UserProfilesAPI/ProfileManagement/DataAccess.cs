@@ -166,5 +166,43 @@ namespace ProfileManagement
 
         //    return result;
         //}
+        private List<string> EditUsername(string usr)
+        {
+            List<string> result = new List<string>();
+
+            return result;
+        }
+
+        public async Task<Login> Authenticate(string usern, string pass)
+        {
+            DataTable dt = new DataTable();
+            sqlite.Open();
+            cmd = sqlite.CreateCommand();
+            cmd.CommandText = "select * from Users where Email= '" + usern + "'";
+            ad = new SQLiteDataAdapter(cmd);
+            ad.Fill(dt);
+            List<Login> User = new List<Login>();
+            foreach (DataRow row in dt.Rows)
+            {
+                Login UserLogin = new Login
+                {
+                    Id = Convert.ToInt32(row["Id"]),
+                    Username = row["Email"].ToString(),
+                    Password = row["Password"].ToString()
+                };
+                User.Add(UserLogin);
+            }
+            sqlite.Close();
+            var user = await Task.Run(() => User.SingleOrDefault(x => x.Username == usern && x.Password == pass));
+            // return null if user not found
+            if (user == null)
+                return null;
+
+            // authentication successful so return user details without password
+            user.Password = null;
+            return user;
+        }
+
+
     }
 }

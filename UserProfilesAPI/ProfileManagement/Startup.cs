@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.AspNetCore.Authentication;
 
 namespace ProfileManagement
 {
@@ -43,7 +44,10 @@ namespace ProfileManagement
             {
                 c.SwaggerDoc("v1", new Info { Title = "Profile Management API" });
             }
-);
+            );
+            services.AddAuthentication("BasicAuthentication")
+                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+            services.AddScoped<DataAccess>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,6 +67,7 @@ namespace ProfileManagement
                builder.WithOrigins("http://localhost:8080")
                     .AllowAnyHeader()
                     .AllowAnyMethod()
+                    .AllowCredentials()
                );
             //app.UseCors("AllowSpecificOrigin");
             app.UseHttpsRedirection();
@@ -73,6 +78,7 @@ namespace ProfileManagement
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Profile Management API");
             }
                 );
+            app.UseAuthentication();
         }
     }
 }
